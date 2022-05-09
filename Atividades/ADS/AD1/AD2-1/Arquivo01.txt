@@ -1,0 +1,1 @@
+primeiramente, este e do metodo de tipo "r", pois nele so se escreve fora do programa e se le dentro do python

@@ -1,0 +1,43 @@
+// Buscas de elementos dentro de uma lista de números ou letras.
+
+As buscas tem tempo de execução, se tem a noção de buscas dependendo do tamanho da lista.
+    Pois, se temos uma grande quantidade de valores nessas listas, entao, se procurarmors nosso elemento de um em um, esse algorítimo tem um tempo muito ruin.
+
+    Agora, se procuramos de forma mais inteligente, podemos buscar milhões de resultados.
+
+    A forma sequencial é quando procura se um a um o elemento dentro de uma lista.
+    [1, 2, 3, 4, 5, 6, 7, 8], imagine que procuramos o numero 3, o algorítimo irá comparar um a um.
+
+Forma de Busca simples mais organizado:
+    Forma que faz com que ao encontrar o elemento, se pare de comparar os valores.
+
+    for i in range(len(Lista)):
+        if ValorDesejado == ValorDeFori:
+            return ValorDesejado
+    return -1
+
+Perceba que eu não preciso de else, pois, há duas possibilidades, econtrar ou não, restringimos nosso código a menos possibilidades para ser mais simples.
+
+
+Busca com Sentinela : Saída rápida
+    Sempre adiciona o elemento procurado na lista, pois no pior caso, ele é encontrado na ultima posição, mas, não está no array, está só de forma mentirosa para o algorítimo encontrar.
+    Esse numero adicionado pelo append() sempre estará na ultima posição, ele é um subterfúgio para o algorítimo não achar nada.
+
+        Achando ele na ultima posição e nao achando qualquer outro numero, retorna -1.
+
+Busca Binára:
+    - Necessita de uma lista ordenada
+Como a lista está organizada, se analisa o elemento procurado de forma lógica.
+    Exemplo:
+        [1, 2, 3, 4, 5, 6, 7, 8]
+        Se pega o elemento do meio da lista, através de uma conta ([0] + [-1]), ou seja, inicio + fim e divide por dois essa soma.
+        Meio = ([0] + [-1]) // 2
+        
+        Que aqui o elemento do meio é o 4, e compara as relações de > e < em relação ao elemento procurado.
+        
+        Pois se o x (elemento procurado) for > que 4, ele então está depois do elemento do meio e só resta uma parte da lista a ser analisada, se for menor é o mesmo caso.
+         Essa parte a ser analisada é o sucessor do 4 até o final ou o antecessor de 4 até o inicio, dependendo do resultado procurado.
+         n
+         Esse novo array ficticio menor, tem se que achar o novo elemento do meio denovo, sempre achar o elemento do meio, ele que norteia a análise de maior e menor e a lógica.
+
+        Caso ele não ache,

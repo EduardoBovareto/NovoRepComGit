@@ -15,3 +15,4 @@ if Atualizacao == 'S':
     print(dictPC)
 else:
     print(f'Seu PC está assim: {dictPC}')
+# Podemos usar update tambem .update(), passando o nome da chave como string ou var e o seu valor com "=" ou valor literal.

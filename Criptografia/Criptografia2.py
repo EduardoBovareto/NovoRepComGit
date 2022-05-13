@@ -2,7 +2,8 @@
 
 def FazCriptografia(Palavra, Nivel): # O nível é o quantos caracteres se pula na relação Unicode
     if Nivel == 'Baixa':
-        for indice, letra in enumerate(Palavra):
+        for indice, letra in enumerate(Palavra): # Indice numera cada letra
+            Palavra[indice] = ord(Palavra[indice]) + 1 # Pega a próxima posicao alfebética
             print() # Muda a posição de cada letra em 1 unidade em padrao unicode.
     elif Nivel == 'Media':
         for indice, letra in enumerate(Palavra):

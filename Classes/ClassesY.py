@@ -61,7 +61,7 @@ class Cliente:
     def Retorna_Configuracoes():
         pass
 
-cli = Cliente('Eduardo', 20, 'Eduardo.Bovareto@Outlook.com', 'Basic')
+cli = Cliente('Eduardo', 20, 'Eduardo.Bovareto@Outlook.com', 'Basic') # Precisa instanciar o objeto pra dps usar os metodos.
 cli.Descobre_Email() # Chama cada metodo para execucao
 cli.MostraSaldo() # Chama cada metodo para execucao
 cli.Comprar(500) # Chama cada metodo para execucao

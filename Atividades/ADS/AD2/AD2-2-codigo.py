@@ -3,28 +3,36 @@ import struct
 Arquivo = input('Digite o nome do Arquivo: ') # Sempre será casrtoes.bin
 Arquivo += '.bin'
 cartao = input('Escreva o nome da sua Bandeira: ') # Informa o cartao usado
-temp = ' '
+temp = 0
 informacoes = open('codigo.txt', 'w') # Abre o arquivo a ser codificado
 Bandeiras = ['Visa', 'Mastercard ', 'Diners ', 'Elo ']
 listas = []
 codigo = []
-p = 0
+p = v = m = e = d = 0
 try:
     for i in Bandeiras:
         if i == 'Visa':
-            listas = [cartao, '123.90'] 
+            listas = [cartao]
+            temp = float('123.90')
+            v = 1
             break
         
         elif i == 'Mastercad':
-            listas = [cartao, '245.45']
+            listas = cartao
+            temp = float('245.45')
+            m = 1
             break
         
         elif i == 'Diners':
-            listas = [i, '367']
+            listas = i
+            temp = float('367')
+            d = 1
             break
         
         elif i == 'Elo':
-            listas = [i, '532']
+            listas = i
+            temp = float('532')
+            e = 1
             break
 
         elif i not in Bandeiras:
@@ -35,7 +43,7 @@ try:
         informacoes.write(infos)
     informacoes.close()
 
-    with open(Arquivo,'r+b') as Arquivo:
+    with open(Arquivo,'wb') as Arquivo:
         # listas[0] = (listas[0] + ' ').encode("utf-8")
         # listas[1] = listas[1].encode('utf-8')
         # codigo.append(listas[0])
@@ -44,12 +52,23 @@ try:
         for i in listas:
             for j in i:
                 inteiros.append(ord(j))
-        temp = bin(ord(temp))
 
         for i in inteiros:
             Arquivo.write(struct.pack('i', i))
-            if i == inteiros[4]:
-                Arquivo.write(temp)
+            Arquivo.write(struct.pack('d', temp))
+        
+        if v == 1:
+            print('')
+            
+        elif m == 1:
+            m = 1
+        
+        elif d == 1: 
+            d = 1
+        
+        elif e == 1:
+            e = 1
+
 except:
     if p == 1:
         print('Cartão não encontrado')

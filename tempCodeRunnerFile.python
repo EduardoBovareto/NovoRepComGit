@@ -1,3 +1,0 @@
-class Pessoa:
-    print()
-p1 = type(Pessoa())

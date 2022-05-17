@@ -1,6 +1,4 @@
 from traceback import print_tb
-
-
 qt = int(input('Informe a quantidade de analises: '))
 
 for i in range(1, qt + 1):

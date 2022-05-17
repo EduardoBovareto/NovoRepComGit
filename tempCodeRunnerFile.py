@@ -1,1 +1,0 @@
-OrganizaInteiros(numeros)

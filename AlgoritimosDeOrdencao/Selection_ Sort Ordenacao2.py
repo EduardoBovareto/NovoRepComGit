@@ -6,10 +6,10 @@ Seleciona os menores elementos primeiro, para depois selcionar os maiores.
 def Selection_Sort(v): # Trabalha de forma posicional, encontra a posição de um elemento menor de todos
     n = len(v)
     for j in range(n -1): # Percorre cada elemento
-        menor = j # Pega cada indice de cada elemento
+        menor = j # Pega cada indice da posição em questao
         for i in range(j, n): # É forçado a analisar cada elemento de uma vez
-            if v[i] < v[menor]:
-                menor = i
+            if v[i] < v[menor]: # Compara pra ver se a posição anterior que é menor, é menor que a atual 
+                menor = i # Se for menor ele pega essa posicao para trocar os numeros
         if v[j] > v[menor]:
             temp = v[menor]
             v[j] = v[i]
@@ -18,21 +18,6 @@ def Selection_Sort(v): # Trabalha de forma posicional, encontra a posição de u
 vetor = [7, 5, 1, 8, 3]
 print(Selection_Sort(vetor))
 
-
-def selection_sort(lista):
-    n = len(lista)
-    for j in range(n-1):
-        min_index = j
-
-        for i in range(j, n):
-
-            if lista[i] < lista[min_index]:
-                min_index = i
-                
-        if lista[j] > lista[min_index]:
-            aux = lista[j]
-            lista[j] = lista[min_index]
-            lista[min_index] = aux
 
 '''
 # Eu guardo a primeira posição como menor para analisar se essa posiçao é a menor, poderia fazer com a próxima também, o que daria mais efetividade, mas o que é guardado é a primeira posição como menor ja que o for irá percorrer cada indice de cada elemento.

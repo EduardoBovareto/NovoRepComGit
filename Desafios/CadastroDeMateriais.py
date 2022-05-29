@@ -25,7 +25,6 @@ def CadastraMateriais(Mat): # Pegará os materiais e colocará em matraiz
     #         Matriz.append(temporario) # Adiciona as informações a matriz
     #         temporario = [] # limpa o aray temporário
     #         continue # Passa para o próximo i
-    
     j = 0
     for i in range(len(Matriz)): # Laço que percorre cada linha da matriz
         for j in Matriz[i]: # laço que percorre cada coluna da matriz
@@ -46,11 +45,10 @@ def GerarLista(Dados, Extension = None): #Var gerar um documento txt com os dado
             while j != len(Dados[k]): # Pega cada array dentro da Matriz
                 Material = Dados[k][j] # Pega cada elemento de cada array dentro do arrayzao
                 Linhas.write(f'{Material}  ')
-                if j == 2:
+                if j == 1:
                     Linhas.write(' \n')
                 j += 1
-            k += 1 
-
+            k += 1
             ''' Precisa incrementar sempre para não ser infinito, pois ele volta do while interno para o externo e checa k e k precisa mudar.'''
             # TODA VARIAVEL QUE USADA NO while E QUE USA O SISTEMA DE DEPENDENCIA DE ITERAÇÃO DEVE FICAR DENTRO DO SEU while PAI. SE TIVERMOS 2 WHILES UM DENTRO DO OUTRO, SE FAZ A SEGUINTE ESTRUTURA:
             ''' 
@@ -65,4 +63,3 @@ def GerarLista(Dados, Extension = None): #Var gerar um documento txt com os dado
 materiais = input('Informe os materiais, a quantidade').split() # Coleta os materias da loja
 File = CadastraMateriais(materiais) # Chamada da function  que retorna e armazena em file
 GerarLista(File)
-# Martelo 56 Prego 88

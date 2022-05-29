@@ -1,1 +1,1 @@
-Martelo 56 Prego 88
+Linhas.write('\n')

@@ -32,14 +32,14 @@ def ProcessaArquivos():
                     if primo >= 2 or Valores[k] == 1: # linha sem primos
                         primo = 0
                         Falso = True   #Variavel controle para guardar linha                     
-                        continue
+                        continue # Impede continuidade de outras condictions
 
                     elif primo == 1: # Ele então é divisível por ele mesmo e por 1 só.
                         #Devemos excluir a linha
                         primo = 0 
                         Falso = False
-                        break #Impede que continue, e volta para  for
-                    
+                        break #Break of the continuation of the execute, and back the estruct for.
+
             ImparPar(Valores,Par, Impar) #Função que acha Par e impar
 
             if Falso == True: #Significa que a linha inteira não tem primos, logo, manter ela

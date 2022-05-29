@@ -1,3 +1,4 @@
+# SUBPROGRAMAÇÃO
 def CadastraMateriais(Mat): # Pegará os materiais e colocará em matraiz
     Matriz = [] # Matriz final
     temporario = [] # Materiais 
@@ -22,8 +23,11 @@ def CadastraMateriais(Mat): # Pegará os materiais e colocará em matraiz
             # if j == Matriz[i][2]: # Caso onde se tem o valor do dinheiro
             #     print('\033[1;34;44m', 'R$', j ,'\033[m' , end=' ')
             print('\033[1;34;44m', j ,'\033[m' , end=' ')  # Printa cada elemento e no final coloca um espaço e cores no terminal
-        
         print('\n') # Quebra a linha no final para a próxima linha
+
+# PROGRAMA PRINCIPAL
 materiais = input('Informe os materiais, a quantidade').split() # Coleta os materias da loja
 CadastraMateriais(materiais) # Chamada da function
 # Podemos fazer contas com o aumento e preço de produto.
+
+#list(int(materiais.split())) or list(map(int, Array.split())) generation of the a list random or with values selctioned

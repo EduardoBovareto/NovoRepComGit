@@ -1,6 +1,7 @@
-from re import U
+# Modificar esse algorítimo para gerar emails diferentes quanto a modelos, depois gerar o resultado em arquivo txt, xls, e printar em forma de dicionário ou dicionário de tuplas.
 
-
+def MostraPossiveisEmails():
+    pass
 print(''' O Email que será fornecido deve conter: 
     - Seu nome;
     - Seu Sobrenome;
@@ -9,9 +10,9 @@ print(''' O Email que será fornecido deve conter:
 ''') # Emissão de funcionalidade
 
 j = 1 # Variavel de controle
-
 while j != 0:
-    Email = input('Informe seu Email:').strip()
+    Modelo = input('Qual modelo de Emnal deseja gerar: ')
+    Email = input('Informe seu primeiro Nome e sobrenome:').split()
     
     if (len(Email) < 20 or (len(Email) < 35)): # Condição de existencia de um email
         print('\nO seu Email está muito pequeno! Procure colocar seu NOME no meio dele!\n')

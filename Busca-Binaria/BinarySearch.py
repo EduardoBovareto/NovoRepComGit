@@ -1,6 +1,7 @@
+from random import choice
 def BinarySearch(Array, buscado):
     Start = 0 # Inicio
-    end = len(L) - 1 # Fim do array
+    end = len(Array) - 1 # Fim do array
     elemento = 0
     
     while Start <= end:
@@ -21,4 +22,4 @@ def BinarySearch(Array, buscado):
 c1 = [1, 2, 3, 4, 5, 6]
 c2 = [2000, 1000, 500, 10]
 L = [c1, c2]
-print(BinarySearch(L,c1))
+print(BinarySearch(c1, choice(c1)))

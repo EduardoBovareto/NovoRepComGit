@@ -58,7 +58,11 @@ def EscreveMatriz(Matriz):
                 text.write(str(m))
                 text.write(' ')
             text.write('\n')
-#PRORAMA PRINCIPAL
+
+def MaioresEMenores(): #Vai ler e dizer quem é quem
+    pass
+
+#PROGRAMA PRINCIPAL
 Colunas = int(input('Informe a quantidade de colunas: '))
 Linhas = int(input('Informe a quantidade de linhas: '))
 print(Criamatriz(Colunas, Linhas, 'Multiplicacao')) #Forma de desempacotamento em 3 variaveis devido o return

@@ -1,0 +1,1 @@
+text.write('-'*len(Matriz[k]))

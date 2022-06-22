@@ -29,7 +29,7 @@ def ProcessaDados(Arquivo, informacoes, code):
     Bloco = []
     for i in range(len(informacoes)): #Codificando
         Resultado.append(informacoes[i].encode(code))
-
+    #Da pra juntar os dois laços em 1 só
     while i < len(Resultado):
         Arquivo.write(struct.pack(Padrao[i], Resultado[i]))
         i += 1

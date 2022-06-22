@@ -6,6 +6,7 @@ def ProcesssaCaracteristicas(I, N, A, C):
     CEmByte = C.encode()
     BlocoCarac = struct.pack(f'{len(N)- 1}s {len(C) - 1}s I f', NomeEmByte, CEmByte, I, A)
     print(BlocoCarac)
+    print(struct.unpack(f'{len(N)- 1}s {len(C) - 1}s I f', BlocoCarac))
     return None
 
 #PROGRAMA PRINCIPAL

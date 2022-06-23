@@ -1,1 +1,1 @@
-Linhas.write('\n')
+DuplaInteiros.txt

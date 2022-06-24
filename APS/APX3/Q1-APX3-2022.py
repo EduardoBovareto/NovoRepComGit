@@ -24,7 +24,7 @@ def ProcessaPontos(Arquivo):
             print(Linha)#Formalizar
             Pontos = list(map(int, Linha.split()))
             Diferenca += AchaDiferenca(Pontos, Arquivo)
-    print(Diferenca)
+    print(f'{Diferenca:.2f}')
     Arquivo.close()
     return None
 #PROGRAMA PRINCIPAL

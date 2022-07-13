@@ -4,7 +4,7 @@ class Cardapio: #Molde para criar o cardapio, uma estrututra de dados que define
         self.Pedidos = pedidos
         #Tenho uma formula que cria um cardapio e com atributos de pedidos
 
-    def processa_pedido(self, Numero):
+    def processa_pedido(self, Numero): #Processa o pedido na unidade grafica
         pass
 
     def adicionar(self): #Adiciona um novo item
@@ -19,6 +19,6 @@ Info = { #Organização de informações de cardapio
     'P4': ['Normal', 22.10]
     }
 MrSilva = Cardapio(Info) #Cria o cardápio do MrSilva
-print(MrSilva.Pedidos) #Acessando o atributo do objeto
+# print(MrSilva.Pedidos) #Acessando o atributo do objeto
 MrSilva = MrSilva.adicionar() #Adiciona um novo item aos pedidos
-print(MrSilva.Pedidos)
+# print(MrSilva.Pedidos)

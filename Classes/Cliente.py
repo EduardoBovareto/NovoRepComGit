@@ -4,7 +4,7 @@ class Cliente:
     def __init__(self, Nome, NI):
         self.identi = Nome
         self.Numeber = NI
-        self.data = date()
+        # self.data = date()
         self.Bandeira = input('Digite a bandeira')
         self.Saldo = 500
         self.Pagamento = int(input('Digite o dia do pagamento'))
@@ -27,4 +27,6 @@ class Cliente:
         self.identi = novoname
         return self.identi, print('Nome Atualizado !')
 Eduardo = Cliente('Edaurdo B', (0, 0, 0, 1, 1, 3, 4))
+Eduardo.confere_saldo()
+Eduardo.retira_valor(500)
 Eduardo.confere_saldo()

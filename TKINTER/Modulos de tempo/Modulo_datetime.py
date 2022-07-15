@@ -32,3 +32,19 @@ ano = data2.year
 
 dia = data2.replace(day=15) #Altera o atributo day do objeto data2 de classe datetime.date
 # print(dia), Podemos fazer isso também com month e year
+
+#datetime.time
+
+hora = datetime.time(20, 41, 10)
+# print(hora)
+# print(hora.hour)
+# print(hora.minute)
+# print(hora.second)
+
+#Tempo e data ao mesmo na mesma informacao
+tudo = datetime.datetime(2022, 7, 14, 20, 45, 1)
+# print(tudo)
+agora = datetime.datetime.now()
+print(agora)
+agora_formatado = agora.strftime(' %d/%m/%Y %H:%M') #Padrao de formatacao de datas BR
+print(f'Data formatada: {agora_formatado}')

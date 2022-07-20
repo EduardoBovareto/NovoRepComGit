@@ -6,13 +6,12 @@ def processa_coment(Arq, j):
         Tempo = datetime.datetime.today()
         Tempo = Tempo.strftime('%d/%m/%Y %H:%M')
         Arq.write(Mensager)
-        print(Tempo)
         Arq.write(Tempo)#Error
         Arq.close()
         return None
 
     else:
-        Arq.write(datetime.datetime.now())
+        Arq.write((datetime.datetime.today()).strftime('%d/%m/%Y %H:%M'))
         Arq.write(' Error')
         Arq.close()
         return None, print('Não emitiremos uma mensagem')

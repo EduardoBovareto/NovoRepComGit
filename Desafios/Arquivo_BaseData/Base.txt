@@ -11,7 +11,7 @@
 1/1/2019	I1I1O7Q3	Caio	Calça	Amarela	 R$ 180.00 
 1/1/2019	O7M9X9S9	Gabriel	Camiseta	Verde	 R$ 100.00 
 1/2/2019	L4R8F3H4	Pablo	Camiseta	Verde	 R$ 100.00 
-1/2/2019	B6S3C6T7	Natália	Camiseta	Vermelha	 R$ 100.00 
+1/2/2019	B6S3C6T7	Natália	Camiseta	Vermelha R$ 100.00 
 1/2/2019	G7N6O5E1	Caio	Camisa	Verde	 R$ 160.00 
 1/2/2019	H9A4X9Z1	Gabriel	Calça	Amarela	 R$ 180.00 
 1/2/2019	T3P4B6H7	Rafaela	Camiseta	Azul	 R$ 100.00 
@@ -25,5 +25,5 @@
 1/3/2019	M3L7E1E8	Natália	Camisa	Verde	 R$ 160.00 
 1/3/2019	M8V8V9R3	Luan	Bermuda	Branca	 R$ 150.00 
 
-Valor correspondente ao total vendido na empresa: 5860.0
-Data de Registro: 22/07/22 17:46
+Valor correspondente ao total vendido na empresa: 2930.0
+Data de Registro: 22/07/22 18:14

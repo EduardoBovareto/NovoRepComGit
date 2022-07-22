@@ -4,10 +4,15 @@ import datetime as dt
 #SUBPROGRAMA - > Arquivo_BaseData\Base.txt
 def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
     Arq = 'Arquivo_BaseData\\' + Arq
+    if '.txt' not in Arq:
+        Arq += '.txt'
+
     with open(Arq, 'r+') as Linhas:
         total = 0 
         for linha in Linhas:
             valor = linha.split()#Pega cada parte da linha e guarda
+            if valor == []:
+                break
             for i in range(len(valor)):
                 if '.' in valor[i] and valor[i][0].isnumeric(): #Verifica se é um valor mesmo
                     valor[i] = float(valor[i])
@@ -23,10 +28,11 @@ def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
 
         Linhas.write(f'Data de Registro: {Rdate}')
         print('The total amount processed was: R${}'.format(total))
+        total = 0
         return None
     '''Duas coisas a tratar: 1 é verficar e colocar .txt no nome do arquivo para caso de
         erro, outra é retirar a repetiçao de escrita do valor total!'''
-        
+
 def acha_nome():
     pass
 

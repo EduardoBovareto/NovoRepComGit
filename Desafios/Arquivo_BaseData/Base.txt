@@ -27,3 +27,6 @@
 
 Valor correspondente ao total vendido na empresa: 2930.0
 Data de Registro: 22/07/22 18:14
+
+Valor total vendido pelo Pablo é: 220.0
+Data de Registro: 22/07/22 19:37

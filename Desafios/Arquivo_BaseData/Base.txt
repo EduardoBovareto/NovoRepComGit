@@ -24,3 +24,6 @@
 1/3/2019	N6L5S6E9	Luan	Calça	Amarela	 R$ 180.00 
 1/3/2019	M3L7E1E8	Natália	Camisa	Verde	 R$ 160.00 
 1/3/2019	M8V8V9R3	Luan	Bermuda	Branca	 R$ 150.00 
+
+Valor correspondente ao total vendido na empresa: 5860.0
+Data de Registro: 22/07/22 17:46

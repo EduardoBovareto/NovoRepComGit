@@ -1,25 +1,38 @@
 import datetime as dt
+# import ManipulaArquivo as mp
 ''' Manipula arquivo de texto de clientes e gera data de registro'''
-#SUBPROGRAMA
-def processa_Arquivo(Arq, m): #Irá pegar todos os valores e somar
-     with open(Arq, 'r+') as Linhas:
+#SUBPROGRAMA - > Arquivo_BaseData\Base.txt
+def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
+    Arq = 'Arquivo_BaseData\\' + Arq
+    with open(Arq, 'r+') as Linhas:
         total = 0 
         for linha in Linhas:
-            valor = list(map(str, linha))#Pega cada parte da linha e guarda
+            valor = linha.split()#Pega cada parte da linha e guarda
             for i in range(len(valor)):
                 if '.' in valor[i] and valor[i][0].isnumeric(): #Verifica se é um valor mesmo
                     valor[i] = float(valor[i])
                     total += valor[i]
                 else:
                     continue
-        print('The total amount processed was: {}'.format(total))
-        return None
+        Linhas.write(f'\nValor correspondente ao total vendido na empresa: {str(total)}\n')
+        Rdate = (dt.datetime.now())
+        Rdate = Rdate.strftime('%d/%m/%y %H:%M') 
+        '''
+        Formatacao de data, não precisa chamar denovod dt.datetime... pois o tipo ja  é datetime, o que resta é só conversao
+        '''
 
+        Linhas.write(f'Data de Registro: {Rdate}')
+        print('The total amount processed was: R${}'.format(total))
+        return None
+    '''Duas coisas a tratar: 1 é verficar e colocar .txt no nome do arquivo para caso de
+        erro, outra é retirar a repetiçao de escrita do valor total!'''
+        
 def acha_nome():
     pass
 
 #PROGRAMA PRINCIPAL
-name_arq = input('Write the name of the file: ') 
+name_arq = input('Write the name of the file: ')
+processa_Arquivo(name_arq)
 ''' 
 Codigo abaixo se trata de uma funcao de arquivo s que dependendo da operacao se chama uma outra nova funcao definida dentro da propria funcao:
 def arquivos():

@@ -37,8 +37,7 @@ def acha_nome(name, Arq):
     Arq = 'Arquivo_BaseData\\' + Arq
     if '.txt' not in Arq:
         Arq += '.txt'
-    with open(Arq, 'r+') as Linhas:
-        total = 0 
+    with open(Arq, 'r+') as Linhas: 
         for linha in Linhas:
             if linha == '\n':
                 break
@@ -48,13 +47,14 @@ def acha_nome(name, Arq):
                 if name == valor[infos]:
                     temp = float(valor[6])
                     valor_vendido += temp
-
         Linhas.write(f'\nValor total vendido pelo {name} é: {str(valor_vendido)}\n')
         data_atualizada = dt.datetime.now()
         data_atualizada = data_atualizada.strftime('%d/%m/%y %H:%M') 
         Linhas.write(f'Data de Registro: {data_atualizada}')
         print('The total amount processed was: R${}'.format(valor_vendido))
     return None
+def value_edit():
+    pass
 #PROGRAMA PRINCIPAL
 name_arq = input('Write the name of the file: ')
 # processa_Arquivo(name_arq)

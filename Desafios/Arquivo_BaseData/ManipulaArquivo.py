@@ -37,7 +37,8 @@ def acha_nome(name, Arq):
     Arq = 'Arquivo_BaseData\\' + Arq
     if '.txt' not in Arq:
         Arq += '.txt'
-    with open(Arq, 'r+') as Linhas: 
+    with open(Arq, 'r+') as Linhas:
+        Novo = Linhas.readlines(3)
         for linha in Linhas:
             if linha == '\n':
                 break
@@ -53,9 +54,25 @@ def acha_nome(name, Arq):
         Linhas.write(f'Data de Registro: {data_atualizada}')
         print('The total amount processed was: R${}'.format(valor_vendido))
     return None
-def value_edit():
-    pass
+
+def value_edit(Arq, value):
+    ''' Muda o valor da venda feita'''
+    Arq = 'Arquivo_BaseData\\' + Arq
+    if '.txt' not in Arq:
+        Arq += '.txt'
+    with open(Arq, 'r+') as valores:
+        for v in valores:
+            lista = v.split()
+            i = 0
+            while i < len(lista) - 1:
+                if lista[i] == value:
+                    lista[i] = str(value)
+                    break
+                i += 0
+#Criptografia de código de vendedor= importar funcao pronta por mim
 #PROGRAMA PRINCIPAL
 name_arq = input('Write the name of the file: ')
 # processa_Arquivo(name_arq)
-acha_nome('Pablo', name_arq)
+# acha_nome('Pablo', name_arq)
+number = int(input('Informe o dado para mudança: '))
+value_edit(name_arq, number) #Depois colocar mais valores

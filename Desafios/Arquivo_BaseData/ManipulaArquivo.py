@@ -1,4 +1,5 @@
 import datetime as dt
+# from posixpath import split
 # import ManipulaArquivo as mp
 ''' Manipula arquivo de texto de clientes e gera data de registro'''
 #SUBPROGRAMA - > Arquivo_BaseData\Base.txt
@@ -7,6 +8,7 @@ def manipula_arq(Arq):
     if '.txt' not in Arq:
         Arq += '.txt'
     return True, Arq
+
 
 def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
     Arq = 'Arquivo_BaseData\\' + Arq
@@ -38,6 +40,7 @@ def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
     '''Duas coisas a tratar: 1 é verficar e colocar .txt no nome do arquivo para caso de
         erro, outra é retirar a repetiçao de escrita do valor total!'''
 
+
 def acha_nome_soma_valores(name, Arq):
     valor_vendido = 0
     Arq = 'Arquivo_BaseData\\' + Arq
@@ -61,18 +64,31 @@ def acha_nome_soma_valores(name, Arq):
         print('The total amount processed was: R${}'.format(valor_vendido))
     return name
 
+
 def acha_nome(Arq, name):
-    with open(Arq, 'r') as L:
-        for i in range(len(L)):
-            info = L.readlines(i)
-            pass
-    return name, #position
+    j = False
+    with open(Arq, 'r+') as L:
+        #colocar uma verificaçao futuramente se o arquivo for muito grande pra
+            #usar outra metodo de analise de nome.
+        lista =  L.readlines() #Pega o arquivo todo em array de strings, e cada string com o caracter ' ' (espaço) representado por '\t'.
+        for i in range(len(lista)):
+            temp = lista[i].split('\t')
+            ''' Pega cada parte da string codificada pelo representante padrao "\t" que no caso é o espaço codificado e separa em vários elementos'''
+            if name in temp:
+                j = True
+                return temp, i
+
+            else:
+               continue
+        if i == len(lista) and j == False:
+            print(f'Esee nome : {name} não se encontra no arquivo de clientes!')
+            return None
+
 
 def value_edit(Arq, value, name):
     ''' Muda o valor da venda feita'''
     _, Arq = manipula_arq(Arq)
     acha_nome(Arq, name)
-
     with open(Arq, 'r+') as valores:
         # name = acha_nome(Arq, name)
         for v in valores:
@@ -85,6 +101,8 @@ def value_edit(Arq, value, name):
                 i += 1
                 #finalizacao de codigo para achar nomes e posicoes e mudar valores de vendas
 #Criptografia de código de vendedor= importar funcao pronta por mim
+
+
 #PROGRAMA PRINCIPAL
 name_arq = input('Write the name of the file: ')
 # processa_Arquivo(name_arq)

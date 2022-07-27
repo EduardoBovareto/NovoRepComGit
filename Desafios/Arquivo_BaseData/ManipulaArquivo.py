@@ -9,7 +9,6 @@ def manipula_arq(Arq):
         Arq += '.txt'
     return True, Arq
 
-
 def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
     Arq = 'Arquivo_BaseData\\' + Arq
     if '.txt' not in Arq:
@@ -40,7 +39,6 @@ def processa_Arquivo(Arq, m = None): #Irá pegar todos os valores e somar
     '''Duas coisas a tratar: 1 é verficar e colocar .txt no nome do arquivo para caso de
         erro, outra é retirar a repetiçao de escrita do valor total!'''
 
-
 def acha_nome_soma_valores(name, Arq):
     valor_vendido = 0
     Arq = 'Arquivo_BaseData\\' + Arq
@@ -63,7 +61,6 @@ def acha_nome_soma_valores(name, Arq):
         Linhas.write(f'Data de Registro: {data_atualizada}')
         print('The total amount processed was: R${}'.format(valor_vendido))
     return name
-
 
 def acha_nome(Arq, name):
     j = False
@@ -92,18 +89,18 @@ def value_edit(Arq, value, name):
     linha, posi = acha_nome(Arq, name)
     with open(Arq, 'r+') as valores:
         lista = []
+        i = 0
         while lista != linha:
             lista = valores.readline()
-            # lista = v.split()
+            i += 1
             if f'\t{name}\t' in lista:
+                valores.seek(i)
                 valores.write('Nova linha')
                 lista = linha
         valores.seek(0)
         return None
                 #finalizacao de codigo para achar nomes e posicoes e mudar valores de vendas
 #Criptografia de código de vendedor= importar funcao pronta por mim
-
-
 #PROGRAMA PRINCIPAL
 name_arq = input('Write the name of the file: ')
 # processa_Arquivo(name_arq)

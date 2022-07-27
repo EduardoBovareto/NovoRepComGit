@@ -1,4 +1,4 @@
-1/1/2019Nova linhaGabriel	Chapéu	Azul	 R$ 90.00 
+1/1/2019    1J7OM8T8    Gabriel    Chapéu	Azul	 R$ 90.00 
 1/1/2019	J1V2E1V9	Marcela	Chapéu	Azul	 R$ 90.00 
 1/1/2019	R7O1C8X6	Iago	Camisa	Branca	 R$ 160.00 
 1/1/2019	C1R7J7O5	Kelly	Camiseta	Amarela	 R$ 100.00 

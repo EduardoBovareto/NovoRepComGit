@@ -70,35 +70,36 @@ def acha_nome(Arq, name):
     with open(Arq, 'r+') as L:
         #colocar uma verificaçao futuramente se o arquivo for muito grande pra
             #usar outra metodo de analise de nome.
+        i = 0
         lista =  L.readlines() #Pega o arquivo todo em array de strings, e cada string com o caracter ' ' (espaço) representado por '\t'.
         for i in range(len(lista)):
             temp = lista[i].split('\t')
             ''' Pega cada parte da string codificada pelo representante padrao "\t" que no caso é o espaço codificado e separa em vários elementos'''
             if name in temp:
                 j = True
-                return temp, i
+                return temp, i #Passa os conteúdos da linha e o numero dela
+
+            if i == len(lista) and j == False:
+                print(f'Esse nome : {name} não se encontra no arquivo de clientes!')
+                return None, None
 
             else:
                continue
-        if i == len(lista) and j == False:
-            print(f'Esee nome : {name} não se encontra no arquivo de clientes!')
-            return None
-
-
+            
 def value_edit(Arq, value, name):
     ''' Muda o valor da venda feita'''
     _, Arq = manipula_arq(Arq)
-    acha_nome(Arq, name)
+    linha, posi = acha_nome(Arq, name)
     with open(Arq, 'r+') as valores:
-        # name = acha_nome(Arq, name)
-        for v in valores:
-            lista = v.split()
-            i = 0
-            while i < (len(lista) - 1):
-                if lista[i] == value:
-                    lista[i] = str(value)
-                    break
-                i += 1
+        lista = []
+        while lista != linha:
+            lista = valores.readline()
+            # lista = v.split()
+            if f'\t{name}\t' in lista:
+                valores.write('Nova linha')
+                lista = linha
+        valores.seek(0)
+        return None
                 #finalizacao de codigo para achar nomes e posicoes e mudar valores de vendas
 #Criptografia de código de vendedor= importar funcao pronta por mim
 

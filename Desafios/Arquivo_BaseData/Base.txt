@@ -1,4 +1,4 @@
-1/1/2019	Q2L7D8X5	Gabriel	Chapéu	Azul	 R$ 90.00 
+1/1/2019Nova linhaGabriel	Chapéu	Azul	 R$ 90.00 
 1/1/2019	J1V2E1V9	Marcela	Chapéu	Azul	 R$ 90.00 
 1/1/2019	R7O1C8X6	Iago	Camisa	Branca	 R$ 160.00 
 1/1/2019	C1R7J7O5	Kelly	Camiseta	Amarela	 R$ 100.00 
@@ -28,5 +28,5 @@
 Valor correspondente ao total vendido na empresa: 2930.0
 Data de Registro: 22/07/22 18:14
 
-Valor total vendido pelo Pablo �: 220.0
+Valor total vendido pelo Pablo �: 220.0
 Data de Registro: 22/07/22 19:37

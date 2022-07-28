@@ -1,0 +1,1 @@
+A soma resultante dos indices é: 112

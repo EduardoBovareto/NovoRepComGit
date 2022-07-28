@@ -1,3 +1,4 @@
+from ast import Str
 import datetime as dt
 # from posixpath import split
 # import ManipulaArquivo as mp
@@ -83,7 +84,7 @@ def acha_nome(Arq, name):
             else:
                continue
             
-def value_edit(Arq, value, name):
+def value_edit(Arq: Str, value:int, name) -> None:
     ''' Muda o valor da venda feita'''
     _, Arq = manipula_arq(Arq)
     linha, posi = acha_nome(Arq, name)

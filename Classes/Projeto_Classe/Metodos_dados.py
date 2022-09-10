@@ -8,11 +8,13 @@ class Met:
 	#function of the planner security
         with open('Classes\\Projeto_Classe\\fispq.txt', 'r+') as arq:
             time = datetime.today()
-            time = time.strftime(' %d/%m/%Y %H:%M').split()
+            time = time.strftime(' %d/%m/%Y %H:%M')
             company = arq.readline()
+            novo = arq.readlines()
 
-            if time[0] in arq.readlines():
+            if time in novo:
                 return arq, company
+
             else:
                 arq.write(f'\n{time[0]}')
 

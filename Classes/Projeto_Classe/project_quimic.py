@@ -12,9 +12,6 @@ class arm:
 		def _changeFsi():	
 			pass
 
-	# class manual:
-	# 	pass	
-
 	def conta_product()->None:
 		print(10)
 

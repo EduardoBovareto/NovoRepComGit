@@ -1,4 +1,5 @@
 import emoji as em
+#escalonar para criação de possiveis emails
 nome = str(input('Qual o seu nome: '))
 #E importante deixar claro os tipos de dados
 

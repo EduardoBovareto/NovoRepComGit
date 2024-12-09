@@ -18,12 +18,16 @@ def Cripto(mensagem):
             MenTemp += chr(temp) #gera o caracter na tabela ASCII perante o valor
             temp = ''
             continue
-
-        elif (mensagem[i].isascii()): #se for um sibolo ou um caractere especial
-            temp = ord(mensagem[i]) + 3 #capta o codigo dentro da tabela ASCII-ord() + 3
-            MenTemp += chr(temp) #acha na tabela ascii qual caracter corresponde a tal
-            temp = ''
-            continue
+        
+        elif (mensagem[i].isupper() ==False or mensagem[i].islower() ==False): #se for um sibolo ou um espaço
+            MenTemp += mensagem[i]
+            pass
+        
+        # Tudo que esta aqui seria caso ele pedisse para tratar caracteres especiais também, como não pediu!
+            # MenTemp += chr(temp) #acha na tabela ascii qual caracter corresponde a tal
+            # temp = ''
+            # continue
+        # '''
 
     temp = MenTemp
     MenTemp = ''
@@ -33,10 +37,17 @@ def Cripto(mensagem):
         i -= 1
     meio = len(MenTemp)
     meio //= 2 #Forma simplificada de operação
-    TratadoFinal = MenTemp[meio::-1]
-
-    return TratadoFinal
-            
+    MenFim = MenTemp[meio::-1] #string mensagem operada ate o meio
+    MenTemp = '' # limpa a variavel temporaria
+    
+    for i in range(len(MenFim)):
+        temp = ord(MenFim[i]) - 1
+        MenTemp += chr(temp)
+        temp = '' #se nao esvaziar temp ele concatena com o que esta dentro sempre
+    MenFim = MenTemp
+    MenTemp = ''
+    
+    return MenFim            
 
 m = str(input('Escreva uma mensgem para analise: '))
 print(Cripto(m))

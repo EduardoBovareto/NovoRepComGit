@@ -1,3 +1,4 @@
+# Entender melhor este algoritimo!
 num = int(input('Escreva um numero: '))
 unidade = num // 1 % 10
 dezena = num // 10 % 10

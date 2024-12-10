@@ -7,47 +7,49 @@
     #Falta resolver a ultima linha do enunciado do problema
     
 
-def Cripto(mensagem):
+def Cripto(mensagem=str):
     mensagem = mensagem.strip() #Retira os espaços e excesso
     MenTemp = ''
     i = 0
-  
+
     for i in range(len(mensagem)): #percorre a mensagem para troca
         if (mensagem[i].isupper() or mensagem[i].islower()):
             temp = ord(mensagem[i]) + 3 #capta o codigo dentro da tabela ASCII-ord() + 3
             MenTemp += chr(temp) #gera o caracter na tabela ASCII perante o valor
             temp = ''
             continue
-        
+            
         elif (mensagem[i].isupper() ==False or mensagem[i].islower() ==False): #se for um sibolo ou um espaço
             MenTemp += mensagem[i]
-            pass
-        
-        # Tudo que esta aqui seria caso ele pedisse para tratar caracteres especiais também, como não pediu!
-            # MenTemp += chr(temp) #acha na tabela ascii qual caracter corresponde a tal
-            # temp = ''
-            # continue
-        # '''
-
+            continue
+            # Tudo que esta aqui seria caso ele pedisse para tratar caracteres especiais também, como não pediu!
+                # MenTemp += chr(temp) #acha na tabela ascii qual caracter corresponde a tal
+                # temp = ''
+                # continue
+            # '''
     temp = MenTemp
     MenTemp = ''
     i = len(temp) -1 #percorrer de tras pra frente
     while i >= 0:
         MenTemp += temp[i]
         i -= 1
+
     meio = len(MenTemp)
     meio //= 2 #Forma simplificada de operação
     MenFim = MenTemp[meio::-1] #string mensagem operada ate o meio
     MenTemp = '' # limpa a variavel temporaria
-    
+        
     for i in range(len(MenFim)):
         temp = ord(MenFim[i]) - 1
         MenTemp += chr(temp)
         temp = '' #se nao esvaziar temp ele concatena com o que esta dentro sempre
     MenFim = MenTemp
     MenTemp = ''
-    
+    print(MenFim)
     return MenFim            
 
-m = str(input('Escreva uma mensgem para analise: '))
-print(Cripto(m))
+entradas = int(input('Quantidade de testes: '))
+while entradas != 0:
+    m = str(input('Escreva uma mensgem para analise: '))
+    Cripto(m)
+    entradas -= 1

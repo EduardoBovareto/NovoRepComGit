@@ -15,11 +15,12 @@ def Emprestimo(salario=float, Vcasa=float,Tempo=int):
               A parcela ficou de: R${parcela}
               Num período de {Tempo} meses            
               ''')
-        return False
+        # return False
+        return True
     
-emprestimo= True
-while emprestimo == True:
-    sal = float(input('Qual seu salario Atual: '))
-    ValorCasa = float(input('Qual valor da casa atualmente:'))
-    temp = int(input('Qunatos anos voce deseja pagar esta casa: '))
-    emprestimo = Emprestimo(sal, ValorCasa, temp)
+# emprestimo = True
+# while emprestimo == True:
+sal = float(input('Qual seu salario Atual: '))
+ValorCasa = float(input('Qual valor da casa atualmente:'))
+temp = int(input('Qunatos anos voce deseja pagar esta casa: '))
+emprestimo = Emprestimo(sal, ValorCasa, temp)

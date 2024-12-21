@@ -9,7 +9,10 @@ if(conv == 1):
     print(f'O resultado de conversao do valor {value} em Binario e:{bin[2::]}')
 
 elif(conv == 2):
-    print(f'O resultado de conversao do valor {value} em Hexadecimal e:{hex(value)}')
+    print(f'O resultado de conversao do valor {value} em Hexadecimal e:{hex(value)[2::]}')
+
+elif(conv == 3):
+    print(f'O resultado de conversao do valor {value} em octadecimal e:{oct(value)[2::]}')
 
 else:
-    print(f'O resultado de conversao do valor {value} em octadecimal e:{oct(value)}')
+    print('Ha algo de errado! Favor reenviar o valor digitado!')

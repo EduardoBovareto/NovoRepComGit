@@ -18,6 +18,7 @@ def Cripto(mensagem=str):
             MenTemp += chr(temp) #gera o caracter na tabela ASCII perante o valor
             temp = ''
             continue
+        
             
         elif (mensagem[i].isupper() ==False or mensagem[i].islower() ==False): #se for um sibolo ou um espaço
             MenTemp += mensagem[i]

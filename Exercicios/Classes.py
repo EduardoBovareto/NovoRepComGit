@@ -5,6 +5,7 @@ class Carro:
         self._name = nome
         self._year = ano
         self._motors = motor
+        self._p = None
         
     @property #decorador que cria o metodo motor como uma propriedade
     def motor(self): #metodo getter para pegar o valor de motor
@@ -16,10 +17,24 @@ class Carro:
         self._motors = new
         #metodo que muda o valor guardado no motor, caso solicitado
 
+    @property
+    def Tfip(self): #serve para definir o Tfip, o preco
+        if self._p == None:
+            self._p = float(input('Descreva o valor da FIP')) #este será caso seja vazio
+        return self._p
+
+    @Tfip.setter
+    def Tfip(self, valor): #Apenas esse metodo permite alterar do lado de fora.
+        self._p = valor
+        return self._p   
+        
 
 Carro1 = Carro('GM', 'Celta', 'Celta VHC chevrolet',2004, 'VHC')
 Carro1.motor = 'DGI' #chama @motor.setter
 print(Carro1.motor)
+
+Carro1.Tfip = 11.800
+print(Carro1.Tfip)
 
 '''
 class Carro:

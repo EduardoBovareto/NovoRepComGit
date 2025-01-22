@@ -1,4 +1,5 @@
 import requests
+import tkinter as tk
 
 def pegar_cotacoes():
     requisicao = requests.get("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL")
@@ -12,8 +13,28 @@ def pegar_cotacoes():
     texto = f'''
     Dólar: {cotacao_dolar}
     Euro: {cotacao_euro}
-    BTC: {cotacao_btc}'''
+    BTC: {cotacao_btc}
+        '''
+    
+    label['text'] = texto
+    label['background'] = 'yellow'
+    label['width'] = 30
 
-    print(texto)
+j_cotacoes = tk.Tk()
+j_cotacoes.title('Cotações Atualizadas')
+j_cotacoes.geometry('400x400') #nao usar x em caixa alta
 
-pegar_cotacoes()
+Frame = tk.Frame(j_cotacoes)
+Frame.pack(fill='both', expand=True)
+
+Atualiza_cotacao = tk.Button(j_cotacoes, text='Atualizar Cotações', command=pegar_cotacoes)
+Atualiza_cotacao.pack(pady=50)
+
+label = tk.Label(j_cotacoes, text='', background=None, width=None)
+label.pack()
+
+canvas = tk.Canvas(j_cotacoes)
+canvas.pack(fill='both', expand=True)
+
+
+j_cotacoes.mainloop()

@@ -73,6 +73,9 @@ canvas.create_window((50,80), window=content_frame, anchor='nw')
 for i in range(50):
     tk.Label(content_frame, text=f"Item {i+1}").pack()
 canvas.config(scrollregion=canvas.bbox('all'))
+#scrollregion= orienta o canvas perante ao widgets que estao dentro
+#bbox() passa as coordenadas de onde começa e termina o texto para que
+#scrollregion= receba essas coordenadas e orienteo canvas
 
 lb = tk.Label(root,text='Digite algo: ') #cria o texto na tela
 lb.pack(padx=10, pady=10) #configura a margin do texto

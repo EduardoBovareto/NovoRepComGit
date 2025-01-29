@@ -21,25 +21,12 @@ def Login():
     usuario = Label(container, text='Usuário:', font=('Arial', 10))
     usuario.grid(row=20, column=2, padx=10)
 
-    login_usuario = Entry(container,border=2)
-    login_usuario.grid(row=20, column=3, pady=20)
-    login_usuario.get()
-
-    senha = Label(container, text='Senha:', font=('Arial', 10))
-    senha.grid(row=22, column=2, pady=20, padx=10)
-
-    senha_usuario = Entry(container, border=2)
-    senha_usuario.grid(row=22, column=3, pady=20)
-    senha_usuario.get()
-    
     arquivo_imagem = ImageTk.PhotoImage(Image.open('TKINTER/Materiais de codigo/icone.png'))
     mostra_image = Label(container, image=arquivo_imagem)
     mostra_image.grid( row=0, column=0, padx=10, pady=10)
 
-    entrar = Button(container, text='Login', command=lambda:cria_interface(login_usuario, senha_usuario))
-    entrar.grid(row=24, column=3, pady=20)
-
-    botao_consultor = Button(container, text='Consultor', command=lambda: consultores(container))
+    #botao consultor e cliente
+    botao_consultor = Button(container, text='Consultor', command=lambda: consultores(container,login_usuario, senha_usuario))
     botao_consultor.grid(row=3, column=2, padx=10)
 
     botao_cliente = Button(container, text='Cliente', command=lambda: cliente(container))
@@ -51,7 +38,22 @@ def Login():
         senha.destroy()
         login_usuario.destroy()
         senha_usuario.destroy()
+        #arrumar um jeito de desfazer a chada da funçao consultores
 
+#-----------------------------------------------------
+#Dificuldade ainda de gerar a interface de cada interece
+    login_usuario = Entry(container,border=2)
+    login_usuario.grid(row=20, column=3, pady=20)
+    login_usuario.get()
+
+    senha = Label(container, text='Senha:', font=('Arial', 10))
+    senha.grid(row=22, column=2, pady=20, padx=10)
+
+    senha_usuario = Entry(container, border=2)
+    senha_usuario.grid(row=22, column=3, pady=20)
+    senha_usuario.get()
+
+   
     login.mainloop()
 
 def cadastra_lead(lista):
@@ -67,7 +69,7 @@ def cadastra_lead(lista):
     for i in range(len(lista)):
         lista[i].delete(0, tk.END)
 
-def consultores(container):
+def consultores(container, login_usuario, senha_usuario):
     Title = Label(container, text='Nelson Bank', font=('Arial', 20))
     Title.grid(row=5,column=3, padx=5, pady=30)
 
@@ -84,6 +86,9 @@ def consultores(container):
     senha_usuario = Entry(container, border=2)
     senha_usuario.grid(row=22, column=3, pady=20)
     senha_usuario.get()
+
+    entrar = Button(container, text='Login', command=lambda:cria_interface(login_usuario, senha_usuario))
+    entrar.grid(row=24, column=3, pady=20)
 
 def cliente(container):
     Title = Label(container, text='Nelson Bank (Clientes)', font=('Arial', 20))

@@ -10,7 +10,8 @@ def AnalisaExistencia(a = int, b = int, c = int):
         return 'Não forma um triângulo'
     
     else:
-        if b == c or b == a or c == a:
+        #triangulos isoceles
+        if b == c and a != b:
             return 'Formam um triângulo Isóceles!!'
         
         elif a == b == c:

@@ -14,24 +14,30 @@ def GerenciaPay(gasto):
     if forma_pagamento == 1:
         valor_final = gasto * (1 - 0.1)
         print(f'''
-              Pagando a vista no dinheiro ou cheque, será inserido um desconto de 10% sobre o valor de compra!
-              A partir do valor inicial {gasto} o total a pagar será de: R${valor_final}''')
+            Pagando a vista no dinheiro ou cheque, será inserido um desconto de 10% sobre o valor de compra!
+              A partir do valor inicial {gasto} o total a pagar será de: R${valor_final:.2f}''')
         
     elif forma_pagamento == 2:
         valor_final = gasto * (1 - 0.05)
         print(f'''
-              Pagando a vista no cartão, será inserido um desconto de 5% sobre p valor da compra!
-              A partir do valor inicial {gasto}, o total a pagar serã de R${valor_final}
+            Pagando a vista no cartão, será inserido um desconto de 5% sobre p valor da compra!
+              A partir do valor inicial {gasto}, o total a pagar serã de R${valor_final:.2f}
               ''')
 
     elif forma_pagamento == 3:
-        print(f'Pa{gasto} R${forma_pagamento}')
-        pass
-
+        valor_final= gasto
+        print(f'''
+            Pagando 2x no cartão, o valor que será pago será de: R${gasto} nao sendo adicionado taxa de serviço e etc. 
+              Valor final: R${valor_final:.2f}
+        ''')
+        
+    elif forma_pagamento == 4:
+        valor_final = gasto * (1+0.1)
+        print(f'''
+        Pagando em 3x ou mais no cartão será inserido 10% de juros por mes
+        valor incial {gasto}.
+        valor com juros: {valor_final:.2f}
+''')
+        
 gasto = float(input('Escreva o valor total das compras: '))
 GerenciaPay(gasto)
-
-'''
-em ate 2x no cartao : preço normal
-em ate 3x ou mais sera 20% de juros
-'''

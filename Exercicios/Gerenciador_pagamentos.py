@@ -1,6 +1,6 @@
 def GerenciaPay(gasto):
     loja = 'Loja do Eduardo'
-    print(loja.center(36, '='))
+    print(f'{loja:-^40}')
     forma_pagamento = int(input('''
         [1] A vista dinheiro ou cheque
         [2] a vista no cartão
@@ -32,12 +32,14 @@ def GerenciaPay(gasto):
         ''')
         
     elif forma_pagamento == 4:
-        valor_final = gasto * (1+0.1)
+        valor_final = gasto * (1+0.2)
         print(f'''
-        Pagando em 3x ou mais no cartão será inserido 10% de juros por mes
+        Pagando em 3x ou mais no cartão será inserido 20% de juros por mes
         valor incial {gasto}.
         valor com juros: {valor_final:.2f}
 ''')
+    else:
+        print('Favor, Fornecer uma das opções mostradas acima!')
         
 gasto = float(input('Escreva o valor total das compras: '))
 GerenciaPay(gasto)

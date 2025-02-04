@@ -7,6 +7,7 @@ from PIL import ImageTk, Image
 
 #cria a interface do banco
 def Login():
+
     #cria a pagina de login
     login = tk.Tk()
     login.title('Login')
@@ -15,19 +16,29 @@ def Login():
     container = Frame(login)
     container.grid(sticky='nsew')
     frame_secundario = tk.Frame()
-    frame_secundario.grid(sticky='nsew')
+    frame_secundario.grid(sticky='nsew', padx=80)
 
     arquivo_imagem = ImageTk.PhotoImage(Image.open('TKINTER/Materiais de codigo/icone.png'))
     mostra_image = Label(container, image=arquivo_imagem)
     mostra_image.grid( row=0, column=0, padx=10, pady=10)
 
+    texto_intro = tk.Entry(frame_secundario, font=("Arial", 14, "italic"))
+    texto_intro.grid(row=10, column=6, pady=40, ipady=80, ipadx=40)
+    texto_intro.insert(0,'  Selecione uma categoria atual!')
+    texto_intro.config(state='readonly')
+
     botao_cliente = Button(container, text='Cliente', command=lambda: cliente(frame_secundario))
-    botao_cliente.grid(row=3, column=4)
+    botao_cliente.grid(row=5, column=5, padx=20)
         
     botao_consultor = Button(container, text='Consultor', command=lambda: consultores(frame_secundario))
-    botao_consultor.grid(row=3, column=2, padx=10)
+    botao_consultor.grid(row=5, column=4, padx=20)
   
     login.mainloop()
+
+def realiza_dados(login_usuario, senha_usuario):
+    login_usuario.delete(0, tk.END)
+    senha_usuario.delete(0, tk.END)
+    #gerenciamento de clientes
 
 def cadastra_lead(lista):
     #mensagem de atenção na cadastro com som interativo
@@ -99,6 +110,7 @@ def configura_entradas(window, campos):
     #entradas do sistema
     for i, (texto, tipo) in enumerate(campos):
         Label(window, text=texto).grid(row=i + 1, column=5, pady=20, padx=3)
+        #valores vazios sao coletados no getr como strings
 
         if tipo == '_nome':
             nome = tk.Entry(window)
@@ -127,6 +139,14 @@ def configura_entradas(window, campos):
             
         else:
             lista = [nome, email, cpf, Idade, renda]
+            if Idade and renda == str:
+                return
+            else:
+                if Idade and renda == int:
+                    msg.showerror('Atenção','Os valores informados devem ser números')
+                
+            
+            #botao que cadastra os leads
             Button(window,text='Cadastro', command=lambda: cadastra_lead(lista)).grid(row=i + 1, column=6, pady=10, padx=1)
         #lambda permite argumentos das entradas
 
@@ -134,7 +154,10 @@ def imagem(frame, imagem):#mostra imagem
     mostra_imagem = Label(frame, image=imagem)
     mostra_imagem.grid(row=0, column=0, sticky='nsew', padx=30, pady=30)
 
-def cria_interface(login, senha):
+def cria_interface(login_usuario, senha_usuario):
+    #realiza limpeza das Entrys
+    login_usuario.delete(0, tk.END)
+    senha_usuario.delete(0, tk.END)
 
     #cria a interface secundaria
     root = tk.Toplevel()
@@ -168,5 +191,3 @@ def cria_interface(login, senha):
     root.mainloop()
 
 Login()
-def realiza_dados():
-    pass

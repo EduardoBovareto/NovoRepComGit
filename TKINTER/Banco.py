@@ -14,46 +14,19 @@ def Login():
 
     container = Frame(login)
     container.grid(sticky='nsew')
-
-    Title = Label(container, text='Nelson Bank', font=('Arial', 20))
-    Title.grid(row=5,column=3, padx=5, pady=30)
-
-    usuario = Label(container, text='Usuário:', font=('Arial', 10))
-    usuario.grid(row=20, column=2, padx=10)
+    frame_secundario = tk.Frame()
+    frame_secundario.grid(sticky='nsew')
 
     arquivo_imagem = ImageTk.PhotoImage(Image.open('TKINTER/Materiais de codigo/icone.png'))
     mostra_image = Label(container, image=arquivo_imagem)
     mostra_image.grid( row=0, column=0, padx=10, pady=10)
 
-    #botao consultor e cliente
-    botao_consultor = Button(container, text='Consultor', command=lambda: consultores(container,login_usuario, senha_usuario))
-    botao_consultor.grid(row=3, column=2, padx=10)
-
-    botao_cliente = Button(container, text='Cliente', command=lambda: cliente(container))
+    botao_cliente = Button(container, text='Cliente', command=lambda: cliente(frame_secundario))
     botao_cliente.grid(row=3, column=4)
-    
-    if botao_cliente.bind('<Button-1>') == True:
-        Title.destroy()
-        usuario.destroy()
-        senha.destroy()
-        login_usuario.destroy()
-        senha_usuario.destroy()
-        #arrumar um jeito de desfazer a chada da funçao consultores
-
-#-----------------------------------------------------
-#Dificuldade ainda de gerar a interface de cada interece
-    login_usuario = Entry(container,border=2)
-    login_usuario.grid(row=20, column=3, pady=20)
-    login_usuario.get()
-
-    senha = Label(container, text='Senha:', font=('Arial', 10))
-    senha.grid(row=22, column=2, pady=20, padx=10)
-
-    senha_usuario = Entry(container, border=2)
-    senha_usuario.grid(row=22, column=3, pady=20)
-    senha_usuario.get()
-
-   
+        
+    botao_consultor = Button(container, text='Consultor', command=lambda: consultores(frame_secundario))
+    botao_consultor.grid(row=3, column=2, padx=10)
+  
     login.mainloop()
 
 def cadastra_lead(lista):
@@ -69,47 +42,55 @@ def cadastra_lead(lista):
     for i in range(len(lista)):
         lista[i].delete(0, tk.END)
 
-def consultores(container, login_usuario, senha_usuario):
-    Title = Label(container, text='Nelson Bank', font=('Arial', 20))
-    Title.grid(row=5,column=3, padx=5, pady=30)
+def consultores(frame_secundario):
+    limpa_widgets(frame_secundario) 
 
-    usuario = Label(container, text='Usuário:', font=('Arial', 10))
+    Title = Label(frame_secundario, text='Nelson Bank', font=('Arial', 20))
+    Title.grid(row=5,column=3, padx=5, pady=30)
+    usuario = Label(frame_secundario, text='Usuário:', font=('Arial', 10))
     usuario.grid(row=20, column=2, padx=10)
 
-    login_usuario = Entry(container,border=2)
+    login_usuario = Entry(frame_secundario,border=2)
     login_usuario.grid(row=20, column=3, pady=20)
     login_usuario.get()
 
-    senha = Label(container, text='Senha:', font=('Arial', 10))
+    senha = Label(frame_secundario, text='Senha:', font=('Arial', 10))
     senha.grid(row=22, column=2, pady=20, padx=10)
 
-    senha_usuario = Entry(container, border=2)
+    senha_usuario = Entry(frame_secundario, border=2)
     senha_usuario.grid(row=22, column=3, pady=20)
     senha_usuario.get()
 
-    entrar = Button(container, text='Login', command=lambda:cria_interface(login_usuario, senha_usuario))
+    entrar = Button(frame_secundario, text='Login', command=lambda:cria_interface(login_usuario, senha_usuario))
     entrar.grid(row=24, column=3, pady=20)
 
-def cliente(container):
-    Title = Label(container, text='Nelson Bank (Clientes)', font=('Arial', 20))
+def cliente(frame_secundario):
+    limpa_widgets(frame_secundario)
+
+    Title = Label(frame_secundario, text='Nelson Bank (Clientes)', font=('Arial', 20))
     Title.grid(row=5,column=3, padx=5, pady=30)
 
-    usuario = Label(container, text='Email:', font=('Arial', 10))
+    usuario = Label(frame_secundario, text='Email:', font=('Arial', 10))
     usuario.grid(row=20, column=2, padx=10)
 
-    login_usuario = Entry(container,border=2)
+    login_usuario = Entry(frame_secundario,border=2)
     login_usuario.grid(row=20, column=3, pady=20)
     login_usuario.get()
 
-    senha = Label(container, text='Senha:', font=('Arial', 10))
+    senha = Label(frame_secundario, text='Senha:', font=('Arial', 10))
     senha.grid(row=22, column=2, pady=20, padx=10)
 
-    senha_usuario = Entry(container, border=2)
+    senha_usuario = Entry(frame_secundario, border=2)
     senha_usuario.grid(row=22, column=3, pady=20)
     senha_usuario.get()
+        
+    entrar = Button(frame_secundario, text='Login', command=lambda: realiza_dados(login_usuario, senha_usuario))
+    entrar.grid(row=24, column=3, pady=20)
 
-def limpa_entry():
-    pass
+def limpa_widgets(frame_secundario):
+    widgets = frame_secundario.winfo_children()
+    for widgets in frame_secundario.winfo_children():
+        widgets.destroy()
     
 def configura_entradas(window, campos):
     nome = email = cpf = Idade = renda = None
@@ -187,3 +168,5 @@ def cria_interface(login, senha):
     root.mainloop()
 
 Login()
+def realiza_dados():
+    pass

@@ -13,8 +13,6 @@ print('''
 		''')
 
 while control != 5:
-
-
 	control = int(input(':'))
 	if control > 5 or control < 0:
 		print('FAVOR RESPEITAR O MENU') 

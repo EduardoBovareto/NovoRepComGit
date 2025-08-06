@@ -26,8 +26,10 @@ def calcular_margem_seguranca(ticker, taxa_crescimento=0.05):
             print(f"Taxa de crescimento projetada não disponível para {ticker}. Usando 5% como padrão.")
             taxa_crescimento = 0.05
 
-        if eps == 0:
-            return preco_atual, eps, 0, 0  # Evita erro se não houver EPS disponível
+        # Verifica se EPS é 0 ou inválido
+        if eps == 0 or preco_atual == 0:
+            print(f"Dados inválidos para o ticker {ticker}. Ignorando...")
+            return 0, 0, 0, 0  # Evita erro se não houver EPS ou preço disponível
 
         valor_intrinseco = eps * (8.5 + 2 * taxa_crescimento)
         margem_seguranca = valor_intrinseco - preco_atual
@@ -42,19 +44,31 @@ def calcular_margem_seguranca(ticker, taxa_crescimento=0.05):
 def atualizar_planilha():
     try:
         wb = openpyxl.load_workbook(caminho_arquivo)
-        sheet = wb.active
+        sheet = wb.active  # Garante que está trabalhando com a primeira planilha (ativo)
+        
+        # Se a planilha não for a primeira, ajusta para selecionar a primeira
+        if sheet.title != "Primeira Planilha":
+            sheet = wb.create_sheet("Primeira Planilha")
+            sheet.append(["Ticker", "Preço Atual", "EPS", "Valor Intrínseco", "Margem de Segurança", "Taxa de Crescimento"])
+
     except FileNotFoundError:
         wb = openpyxl.Workbook()
         sheet = wb.active
-        sheet.append(["Ticker", "Preço Atual", "EPS", "Valor Intrínseco", "Margem de Segurança"])
+        sheet.title = "Primeira Planilha"
+        sheet.append(["Ticker", "Preço Atual", "EPS", "Valor Intrínseco", "Margem de Segurança", "Taxa de Crescimento"])
 
     # Obtém os tickers existentes na planilha para evitar duplicação
     tickers_existentes = {sheet.cell(row=i, column=1).value: i for i in range(2, sheet.max_row + 1)}
 
-    # Atualiza ou adiciona os dados dos tickers
     for ticker in tickers:
+        # Buscar dados de cada ticker
         preco_atual, eps, valor_intrinseco, margem_seguranca = calcular_margem_seguranca(ticker)
 
+        if preco_atual == 0:
+            print(f"Não foi possível atualizar os dados de {ticker}. Verifique o ticker e tente novamente.")
+            continue
+
+        # Caso o ticker tenha dados válidos, continue
         if ticker in tickers_existentes:
             row = tickers_existentes[ticker]
             sheet.cell(row=row, column=2, value=preco_atual)

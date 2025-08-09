@@ -4,13 +4,13 @@ count = 10
 cond = True
 termos = 10
 while cond == True:
-    if termos == 10:
+    if termos == 10 and count == 10:
         print(f'{a1}')
 
     else:
         #no branch main, o bloco do else esta inverso, posiicao correta!
-        print(f'{temp}')
         temp += r #a partir do a1 se soma a razao em temp para imprimir
+        print(f'{temp}')
 
     #se estiver no primeiro termo ele emite a1, senao os temos e PAUSA quando termos == 1
     termos -= 1

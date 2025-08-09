@@ -43,4 +43,31 @@ else:
 
 #Quando False, apenas escrita direto decodificando
 
+newline = ['\n','\r','\r\n','']
+#controla as quebras de linha
+
+if escrita == True:
+    if newline == None:
+        continue
+        #Traduz qualquer um dos tipos para \n e quebra linha
+
+    elif newline == '':
+        continue
+        #\n e escrito como ele e sem traducao
+    
+    else:
+        continue
+        #todos os outros valores tambem serao traduzidos
+
+elif leitura == True:
+    if newlline == None:
+        continue
+        #le  e interpreta todos os valores possiveis menos ''
+    
+    elif newline in  ['\n','\r','\r\n']:
+        continue
+        #reconhece no fim da linha apenas o que for selecionado
+
+
+
 ~~~

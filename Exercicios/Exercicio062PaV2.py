@@ -8,6 +8,7 @@ while cond == True:
         print(f'{a1}')
 
     else:
+        #no branch main, o bloco do else esta inverso, posiicao correta!
         print(f'{temp}')
         temp += r #a partir do a1 se soma a razao em temp para imprimir
 

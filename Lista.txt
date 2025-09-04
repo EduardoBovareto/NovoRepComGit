@@ -1,8 +1,0 @@
-========== LISTA DE MATERIAIS ============
-
-Martelo  10   
-PinoTrava  300   
-Estojo  200   
-Porca  455   
-WD40  150   
-Tijolo  2300   

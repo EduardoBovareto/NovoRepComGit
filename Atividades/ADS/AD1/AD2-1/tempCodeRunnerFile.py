@@ -1,1 +1,0 @@
-Arquivo1.close()

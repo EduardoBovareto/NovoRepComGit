@@ -1,1 +1,0 @@
-Eduardo editanto umm novo ArquivoPodemos fazer esse write sem o uso do print()

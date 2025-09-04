@@ -1,5 +1,0 @@
-COMUNICADO IMPORTANTE - 
-Entrega presencial de documentação para a matrícula nos polos
-Curso de Python - Arquivos - Abrindo e lendo arquivos de texto
-Nesta lição vamos mostrar a manipulação de arquivos com Python, abordando primeiramente a leitura de arquivos de 
-texto simples.

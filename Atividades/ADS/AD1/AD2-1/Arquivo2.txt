@@ -1,1 +1,0 @@
-Escrevendo pela primeira vez no arquivoMetodo de apenas escrita em um arquivo

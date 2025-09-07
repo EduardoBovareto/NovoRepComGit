@@ -26,6 +26,9 @@ def Analisa_pedido(pw):
 
             for possible in pw: #analise das palavras
                 if pw[possible] in abc.words(): #verifica letra
+                    if pw[possible].isalnum() == True:
+                        password_finaly.append(pw[possible])
+                    
                     palavra += pw[possible] #separa possivel nome
                     count += 1
 

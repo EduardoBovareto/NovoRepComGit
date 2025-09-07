@@ -14,23 +14,33 @@ def Trata_word(palavra):
 
 def Analisa_pedido(pw):
     if str in pw:
-        temp = []
+        temp = password_finaly =  []
         try:
             temp = list(map(int,pw)) #converte caso haja so numero em lista separada
-            return temp, len(temp) #retorno para manipulacao da senha, e tamanho
+            password_finaly.append(temp) #retorno para manipulacao da senha, e tamanho
 
         except ValueError:
             qtd = len(pw) #tamanho para parametro
             count = 0
             palavra = ''
 
-            for possible in len(qtd): #analise das palavras
+            for possible in pw: #analise das palavras
                 if pw[possible] in abc.words(): #verifica letra
-                    palavra += pw[possible]
+                    palavra += pw[possible] #separa possivel nome
+                    count += 1
 
+                    if count >= 3 or count >= 4:
+                        if palavra in names.words():
+                            cut = pw.index(palavra) #procura nome dentro
+                            temp.append(pw[cut:len(palavra)]) #tamanho do nome ou string morta
+
+                        else:
+                            temp.append(pw[cut:len(palavra)])
+                            palavra = ''
+                            count = 0
+                            
                 else: #caso de numero ou especial
-                    temp.append(pw[possible])
-                    pass
+                    password_finaly.append(pw[possible])
             
 
 def Gera_senha(): #analisara cada caracter

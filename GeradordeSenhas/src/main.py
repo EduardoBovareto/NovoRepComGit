@@ -1,4 +1,4 @@
-
+import nltk
 def Analisa_pedido(pw):
     if str in pw:
         temp = []

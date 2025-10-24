@@ -30,36 +30,33 @@ def DadosPessoais(): #Data people menu
     atualizacao = (input('You want edit your data:[y-n]'))
     temp = 0 #DP manipulation
 
-    if atualizacao == 'y':print('''[-1]Voltar[0]Nome\n[1]Salario\n[2]pais\n[3]dependentes\n[4]residencia''')  
-    
-    else:
-        atualizacao == 'n'
+    if atualizacao == 'n': 
         return False
-    
-    temp = int(input('Select your option: '))
-
-    if temp == 0:
-        key = list(DP.keys())[temp] = input('Write wour name: ')
-        return key
-
-    elif temp == 1:
-        key = list(DP.keys())[temp] = float(input('Describe your salary: '))
-        return key
-
-    elif temp == 2:
-        key = list(DP.keys())[temp] = input('Describe your country: ')
-        return key
-
-    elif temp == 3:
-        key = list(DP.keys())[temp] = int(input('Whats is number dependents: '))
-        return key
-
-    elif temp == 4:
-        key = list(DP.keys())[temp] = bool(input('Home: [True-Flase]'))
-        return key
     else:
-        return True
-
+        print('''Nome\nSalario\nPais\nDependentes\nResidencia''') 
+    
+    subprogram = True
+    while subprogram == True:
+        temp = str(input('Describe the option,Data or write "sair": ')).lower() #opção de dado a ser alterado + novo
+        
+        if temp == 'sair':
+           subprogram = False
+        
+        else:
+            temp = temp.split(',')
+            if temp[0] not in DP.keys():
+                temp = str(input('Write the option in DataBase!!,Data or write "sair": ')).lower()
+                temp = temp.split(',')
+            key = temp[0] #chave informada
+            DP[key] = temp[1]  #guardando valor informado
+    return True
+    
+    #elif temp == 4:
+    #    key = list(DP.keys())[temp] = bool(input('Home:  '))
+    #    DP[list(DP.keys())[temp]] = key #list(DP.keys())Pega as chaves de DP por keys, tem seleciona
+    #    print(f"It's the change: {key}")
+ 
+    
 def VerificaSenha(senha):
     while len(senha) < 10:
         senha = str(input('Digite a sua senha de acesso:  10 caracteres!'))
@@ -78,8 +75,8 @@ def Menu(menu):
                 Bem Vindo ao Caixa Eletronico
                 Operações:
                 [-1] Sair do Menu
-                [0]Dados Pessoais
-                [1]Ler Saldo
+                [0] Dados Pessoais
+                [1] Ler Saldo
                 [2]
                 [3]
                 [4]

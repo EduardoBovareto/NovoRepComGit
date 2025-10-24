@@ -1,4 +1,4 @@
-import names #temporariamente, pois a senha sera atralada a um nome
+#import names #temporariamente, pois a senha sera atralada a um nome
 from random import randint, choice
 '''
 2 - informar saldo de debito e credito(def Debito(), def Credito(), def MostraSaldo())
@@ -9,50 +9,102 @@ from random import randint, choice
 7 - Emprestimo (def Emprestimo)
 8 - Juros acima do Cheque especial (cheque especial)
 '''
-def DadosPessoais():
-    # DP sera um set
+
+def DadosPessoais(): #Data people menu
+    atualizacao = None
+
     salario = randint(1200, 20000)
-    nome = names.get_last_name() #nome aleatorio
+    nome = 'Eduardo' #nome aleatorio
     pais = 'Brazil'
     dependentes = randint(0,5)
-    residencia =  choice(True, False) #escolhe um dos DadosPessoais
+    residencia =  choice([True, False])
+
+    DP = {
+        'nome': nome,
+        'salario': salario,
+        'pais': pais,
+        'dependentes': dependentes,
+        'residencia': residencia
+    }
+
+    atualizacao = (input('You want edit your data:[y-n]'))
+    temp = 0 #DP manipulation
+
+    if atualizacao == 'y':print('''[-1]Voltar[0]Nome\n[1]Salario\n[2]pais\n[3]dependentes\n[4]residencia''')  
     
+    else:
+        atualizacao == 'n'
+        return False
     
-def Lesenha(senha):
-    #tratar senha forte e emitir mensagem futuramente
-    return len(senha)
-    
-def debito():
-        
-pass
+    temp = int(input('Select your option: '))
+
+    if temp == 0:
+        key = list(DP.keys())[temp] = input('Write wour name: ')
+        return key
+
+    elif temp == 1:
+        key = list(DP.keys())[temp] = float(input('Describe your salary: '))
+        return key
+
+    elif temp == 2:
+        key = list(DP.keys())[temp] = input('Describe your country: ')
+        return key
+
+    elif temp == 3:
+        key = list(DP.keys())[temp] = int(input('Whats is number dependents: '))
+        return key
+
+    elif temp == 4:
+        key = list(DP.keys())[temp] = bool(input('Home: [True-Flase]'))
+        return key
+    else:
+        return True
+
+def VerificaSenha(senha):
+    while len(senha) < 10:
+        senha = str(input('Digite a sua senha de acesso:  10 caracteres!'))
+    return senha
+
+def Menu(menu):
+    menu = True
+    template = '' #template do banco
+    senha = ''
+
+    while menu == True:
+            if len(senha) == 0:
+                senha = VerificaSenha(senha)
+            else:
+                template = int(input('''
+                Bem Vindo ao Caixa Eletronico
+                Operações:
+                [-1] Sair do Menu
+                [0]Dados Pessoais
+                [1]Ler Saldo
+                [2]
+                [3]
+                [4]
+                [5]
+                [6]
+                [7]
+                [8]
+                '''))
+                if template == -1:
+                    menu = False
+
+                elif template == 0:
+                    menu = DadosPessoais()
+    if menu == False:
+        print('Fim da Execução, Bom dia!')
+
+Menu(True)
+
+'''    
+def debito():   
+    pass
+
 def credito():
     pass
 
-def Saldo()
-
-menu = True
-template = None #tempate do banco
-senha = None
-
-while menu == True:
-    senha = str(input('Digite a sua senha de acesso:  10 caracteres!'))
-    Lesenha(senha)
-    if len(senha) < 10:
-        senha = str(input('Digite a sua senha de acesso:  10 caracteres!'))
-    else:
-        template = int(input('''
-            Bem Vindo ao Caixa Eletronico
-            Operações:
-            [-1] Sair do Menu
-            [0]Dados Pessoais
-            [1]Ler Saldo
-            [2]
-            [3]
-            [4]
-            [5]
-            [6]
-            [7]
-            [8]
-    '''))
-    
-    
+def Saldo():
+    pass
+'''

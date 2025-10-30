@@ -26,13 +26,14 @@ def DadosPessoais(): #Data people menu
         'dependentes': dependentes,
         'residencia': residencia
     }
+    globals()['DP'] #torna DP global em todo o codigo
 
     atualizacao = (input('You want edit your data:[y-n]'))
     temp = 0 #DP manipulation
 
     if atualizacao == 'n': 
         return False
-    else:
+    else: #else para consulta de dados
         print('''Nome\nSalario\nPais\nDependentes\nResidencia''') 
     
     subprogram = True

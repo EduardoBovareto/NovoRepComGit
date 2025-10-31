@@ -6,11 +6,12 @@ while True:
         preco = float(input('Descreva o preço do produto: '))
     
     pagamento = int(input(''''Informe a maneira de pagamento
-    A vista 10% de desconto[0]
-        Cartao 5 porcento de desconto[1]]
-            Dinheiro[2]
-                2x cartao 20% de juros[3]
-                    3x ou mais no cartao 20 porcento de juros[4]'''))
+        \nA vista 10% de desconto[0]\n
+        Cartao 5 porcento de desconto[1]\n
+        Dinheiro Valor normal[2]\n
+        2x cartao 20% de juros[3]\n
+        3x ou mais no cartao 40% de juros[4]\n
+        :'''))
         
     if pagamento == 0: #10% de desconto
        total += (preco * (100 - 10)) / 100
@@ -24,7 +25,7 @@ while True:
     elif pagamento == 3: #caso de 20% de juros no cartao
         total += (preco * (100 + 20)) / 100
 
-
+    print(f'\nValor atual: {total}\n')
     flag = input('Deseja continuar comprando: [sim-Não]').capitalize()
 
     while flag not in ['Nao','Sim','Não']: #caso de escrita errada

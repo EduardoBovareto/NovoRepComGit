@@ -43,6 +43,7 @@ while True:
     if flag == 'N':
         break
 
+
 '''
 A tupla array_temp foi adicioanda por ultimo devido ter 5 outras tuplas com 4 indices e a tupla de valores calculados em cima dos deconstos possuir 5 indices.
 

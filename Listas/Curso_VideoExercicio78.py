@@ -2,6 +2,7 @@ temp = []
 maior = menor = 0
 posicao_maior = posicao_menor = ''
 
+
 for i in range(0,5):
     temp.append(float(input('Write a value: ')))
 

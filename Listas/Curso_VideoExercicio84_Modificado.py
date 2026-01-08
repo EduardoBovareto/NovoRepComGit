@@ -90,5 +90,5 @@ VePeso(pessoas)#analisa os 3 mais pesados
 print(f'\nTotal de pessoas cadastradas: {len(pessoas)}')
 print(f'O maior peso foi:{maior} Peso de {pesados}')
 print(f'\nO menor peso foi de:{menor} Peso de {leves}')
-print(Media)
+print(f'A media de peso final e : {Media}kg')
 #print(pessoas): [['Eduardo', 68.0], ['Maria', 56.0], ['Joao', 57.0], ['Jobiscleiva', 78.0]

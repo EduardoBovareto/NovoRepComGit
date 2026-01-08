@@ -1,20 +1,4 @@
-'''
-👉 Dica de raciocínio:
 
-Quem são os 3 mais pesados?
-
-Quem são os 3 mais leves?
-Quantas pessoas têm o mesmo peso máximo?
-
-Quantas têm o mesmo peso mínimo?
-
-Existe alguém com peso exatamente igual à média?
-Peso negativo é válido?
-
-Peso zero faz sentido?
-
-Nome vazio deve ser aceito?
-'''
 def AcimaMedia(listaP, media):#pessoas acima da media
     RelacaoPeso = {
         'Ate 60': '',
@@ -34,7 +18,7 @@ def AcimaMedia(listaP, media):#pessoas acima da media
         else:
             RelacaoPeso['+ de 80'] += f'{p} '
 
-    print(RelacaoPeso)
+    #print(RelacaoPeso)
     return None
 
 def Lenome(nome):
@@ -47,8 +31,16 @@ def Lenome(nome):
     else:
         return nome
     
-def VePeso():
-    pass
+def VePeso(lista):
+    lista.sort(key=lambda x: x[1])
+#sort percorre lista desempacotando cada array dentro, x[1] pega so o valor e assim organiza atraves da funcao sort. Realizado assim devido a estrutura [[]]
+
+    print('\nOs 3 mais leves sao:')
+    list(map(lambda x: print(x),lista[0:3]))
+#lambda de x onde printa cada x percorrido por map onde o fornecido e lista[0:3] onde mostra cada pessoa e peso
+
+    print('\n Os 3 mais pesados sao: ')
+    list(map(lambda x: print(x),lista[-3:]))
 
 flag = ''
 pessoas = []
@@ -62,6 +54,9 @@ while True:
     nome = Lenome(nome)
 
     peso = float(input('Escreva o peso: '))
+    while peso <= 0:
+        print('\nNao existe peso negativo! Favor reescrever o peso: ')
+        peso = float(input('Peso da pessoa: '))
     pessoas.append([nome,peso])#nome e peso para calculo estatistico
     Soma += peso #media de peso das pessoas
 
@@ -91,6 +86,7 @@ while True:
 
 Media = f'{Soma / len(pessoas):.2f}'#media de peso com 2 casas
 AcimaMedia(pessoas, Media)
+VePeso(pessoas)#analisa os 3 mais pesados
 print(f'\nTotal de pessoas cadastradas: {len(pessoas)}')
 print(f'O maior peso foi:{maior} Peso de {pesados}')
 print(f'\nO menor peso foi de:{menor} Peso de {leves}')

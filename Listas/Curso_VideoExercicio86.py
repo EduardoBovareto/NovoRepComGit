@@ -6,4 +6,7 @@ for i in range(0,3):
         temp.append(n)
     matriz.append(temp.copy())
     temp.clear()
-print(matriz)
+
+for lista in matriz:
+    for indice in range(0, len(lista)):
+        print(f'[  {lista[indice]}   ]',end='') if indice <=1 else print(f'[  {lista[indice]} ]\n')

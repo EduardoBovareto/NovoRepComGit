@@ -15,7 +15,8 @@ while True:
     
     for gol in range(0,jogador['partidas']):
         gols.append(int(input(f'\nQuantos gols na partida {gol+1}: ')))
-    jogador['gols'] = gols
+    jogador['gols'] = gols.copy()
+    gols.clear()
 
     counter += 1
     jogadores[counter] = jogador.copy()
@@ -27,8 +28,6 @@ while True:
         flag = str(input('Erro de entrada! Deseja continuar: [S/N]')).upper()
     if flag == 'N':
         print(f'{'-='*30}')       
-        for i,j in enumerate(jogadores):
-            print(i)
-            for d in j.value():
-                print(d)
+        for i in jogadores.values():
+           print(f'Jogador {i['nome']} fez {i['partidas']} partidas e {sum(i['gols'])} gols')
         break

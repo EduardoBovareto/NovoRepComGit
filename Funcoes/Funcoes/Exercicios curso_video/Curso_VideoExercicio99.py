@@ -19,11 +19,11 @@ def maior(numeros):
 
     print(f'Foram informados {len(numeros)} numeros ao todo.')
     print(f'O maior valor foi: {maior}')
-    print(f'\n{'-='*30}\n\n')  
+    print(f'\n{'-='*30}\n')  
 
 
 #Programa principal
 for i in range(rd(0,3), rd(0,6)):
-    numeros  = [rd(2,20) for i in range(rd(0,8), rd(9,13))]
-    #
+    numeros  = [rd(-9,9) for i in range(rd(0,8), rd(9,13))]
+    #gera no minimoo nenhum ou 13 valores na lista entre o conjunto 2 e 20 pertencente
     maior(numeros)

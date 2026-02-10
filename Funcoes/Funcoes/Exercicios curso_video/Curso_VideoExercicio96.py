@@ -1,9 +1,10 @@
 def area(compr, larg):
-    areatt = compr * larg
+    areatt = compr * larg  #operacao de area
     print(f'Medidas do terreno: Comprimento: {compr} m X Largura: {larg} m')
     print(f'Area total: {areatt} m²')
 
 
+#Programa Principal
 print(f'\n\n{'Controle de terrenos':^30}')
 print('-'*30)
 largura = float(input('LARGURA (m): '))
